@@ -1,8 +1,8 @@
 # OOP Project Sprint Log: Sprint 1
 
 ## Sprint goal
-To implement the core object-oriented structure of the PROJECT, including:
-- Definition of the ______________ and ________ classes
+To implement the core object-oriented structure of the *Thanes of Combat*, including:
+- Definition of the `Player` and `Enemy` classes
 - Methods for ________, ______, and ________
 - Manual testing via `main.py`
 - Internal documentation and preparation for future extension
@@ -25,10 +25,7 @@ To implement the core object-oriented structure of the PROJECT, including:
 ## Resources used
 - Python documentation (class syntax, list operations, Boolean logic)
 - GitBook Module 222 for system design and class modelling
-- AI assistant (ChatGPT) used to:
-  - Review class and method responsibilities for cohesion
-  - Provide examples of summarising vs detailed output formats
-  - Identify separation between Task and TaskManager roles
+- AI assistant (ChatGPT) used to review my work and for feedback
 - Internal test cases designed using pre-defined inputs and expected outputs
 
 ---
@@ -52,10 +49,10 @@ To implement the core object-oriented structure of the PROJECT, including:
 
 ## Version control
 - Initialised Git repository in GitHub
-- Created `CLASS1.py`, `tCLASS2.py`, `main.py`, and committed first draft
-- Commits made incrementally by component: CLASS1, CLASS2, main logic
+- Created `Player.py`, `Enemy.py`, `main.py`, and committed first draft
+- Commits made incrementally by component: `Player`, `Enemy`, main logic
 - `.gitignore` added to exclude PyCharm and OS metadata
-- Pushed to private GitHub repo using SSH
+- Pushed to public GitHub repo using SSH
 
 ---
 

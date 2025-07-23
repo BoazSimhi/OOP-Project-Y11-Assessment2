@@ -1,7 +1,7 @@
 # OOP-Project-Y11-Assessment2
-My Year 11 Software Engineering Assessment 2 (for Term 3). An OOP project.
+My Year 11 Software Engineering Assessment 2 (for Term 3). An OOP project called *Thanes of Combat*.
 
-A riveting command line fantasy adventure-combat game written in Python. The project will use object-oriented principles and follow an Agile development paradigm using sprints, system design, and version control with Git and GitHub.
+*Thanes of Combat* is a riveting command line fantasy adventure-combat game written in Python. The project will use object-oriented principles and follow an Agile development paradigm using sprints, system design, and version control with Git and GitHub.
 
 ## Features
 
@@ -32,7 +32,7 @@ OOP-Project-Y11-Assessment2/
 ## Requirements
 
 - Python 3.x (standard library only)
-- Other third-party packages required_______________
+- Standard Python libraries such as `os` and `random` for screen clearing and enemy selection
 
 ## Getting started
 
