@@ -14,19 +14,20 @@ The system design outlined here covers the full project scope, even though featu
 ## System architecture
 The system consists of two main classes:
 
-- `NAME`: Represents ______________________.
-- `OTHER NAME`: ____________________.
+- `Player`: Represents the Player character with attributes such as health, damage, level, xp, and items in an inventory.
+- `Enemy`: For creating different types of enemies and assigning them similar attributes to the Player so that the Player can engage in text-based combat.
 
 The program is designed for terminal-based use and avoids GUI dependencies. Each sprint builds on the existing functionality.
 
 ## Class descriptions
 
-### CLASS 1
+### Player
 
 | Attribute       | Type     | Description                                 |
 |----------------|----------|---------------------------------------------|
-| `title`        | `str`    | Short label describing the task             |
-| `description`  | `str`    | Detailed explanation of the task            |
+| `name`        | `str`    | The player's name             |
+| `health`  | `int`    | The player's remaining health            |
+| `max_health`  | `int`    | The player's maximum health capacity           |
 | `due_date`     | `str`    | Task deadline (in YYYY-MM-DD format)        |
 | `is_complete`  | `bool`   | True if task is completed, otherwise False  |
 
@@ -37,7 +38,7 @@ The program is designed for terminal-based use and avoids GUI dependencies. Each
 | `display_summary()` | Prints a short overview of the task        |
 | `display_details()` | Prints all information about the task      |
 
-### CLASS 2
+### Enemy
 
 | Attribute | Type        | Description                                |
 |-----------|-------------|--------------------------------------------|

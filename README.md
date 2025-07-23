@@ -1,13 +1,15 @@
 # OOP-Project-Y11-Assessment2
 My Year 11 Software Engineering Assessment 2 (for Term 3). An OOP project.
 
-PROJECT DESCRIPTION
+A riveting command line fantasy adventure-combat game written in Python. The project will use object-oriented principles and follow an Agile development paradigm using sprints, system design, and version control with Git and GitHub.
 
 ## Features
 
-- Feature 1
-- Feature 2
-- more
+- Player has health, damage, and other attributes
+- Fights enemies and receives xp for defeating them
+- Player is able to level up and get stronger
+- Fully object-oriented design using Python classes
+- Manual testing and logging included in /docs
 
 
 ## Folder structure
@@ -15,9 +17,9 @@ PROJECT DESCRIPTION
 ```
 OOP-Project-Y11-Assessment2/
 │
-├── A class python file.py               # ____________ class definition
-├── another class python file.py       # ___________ class for _________
-├── main.py               # Entry point and manual test runner
+├── Player.py   # Player class definition
+├── Enemy.py    # Enemy class for creating different types of enemies
+├── main.py     # Entry point and manual test runner
 │
 ├── docs/
 │   ├── SDS.md            # Software Design Specification (v1.0+)
