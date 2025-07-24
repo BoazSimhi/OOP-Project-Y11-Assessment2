@@ -28,7 +28,7 @@ The program is designed for terminal-based use and avoids GUI dependencies. Each
 | `name`        | `str`    | The Player's name             |
 | `strength`     | `int`    | The Player's damage they are able to deal when they `attack()`     |
 | `wisdom`  | `int`   | How much the Player is able to heal when they `rest()`  |
-| `health`  | `int`    | The Player's remaining health            |
+| `current_health`  | `int`    | The Player's remaining health            |
 | `max_health`  | `int`    | The Player's maximum health capacity      |
 | `level`  | `int`   | The Player's level, indicating their progress in the game  |
 | `xp`  | `int`   | How close the player is to levelling up  |
@@ -37,7 +37,7 @@ The program is designed for terminal-based use and avoids GUI dependencies. Each
 | Method              | Description                                |
 |---------------------|--------------------------------------------|
 | `attack(target)`   | Reduces `Enemy.health` by `strength`               |
-| `rest(wisdom)` | Increases `Player.health` by `wisdom`              |
+| `rest()` | Increases `Player.health` by `wisdom`              |
 | `display_stats()` | Prints the `Player` object's statistics   |
 | `level_up()` | Allows the Player to increase one of their attributes     |
 | `death()` | When the Player's `health` reaches 0 they die    |
@@ -48,15 +48,14 @@ The program is designed for terminal-based use and avoids GUI dependencies. Each
 |-----------|-------------|--------------------------------------------|
 | `name`        | `str`    | The Enemy's name             |
 | `strength`     | `int`    | The Enemy''s damage they are able to deal when they `attack()`     |
-| `health`  | `int`    | The Enemy's remaining health            |
+| `current_health`  | `int`    | The Enemy's remaining health            |
 | `max_health`  | `int`    | The Enemy's maximum health capacity      |
 | `difficulty`  | `int`   | To determine at what `Player level` this enemy should be fought  |
-| `reward_xp`  | `int`   | The amount of xp the Player will receive for defeating the Enemy  |
 
 | Method                    | Description                                         |
 |---------------------------|-----------------------------------------------------|
 | `attack(target)`      | Reduces `Player.health` by `strength`                      |
-| `death(xp_receiver)`     | When the Enemy's `health` reaches 0, the Player receives `reward_xp`   |
+| `death(xp_receiver)`     | When the Enemy's `current_health` reaches 0, the Player receives xp related to the enemy's `difficulty`   |
 
 
 ## Assumptions and constraints
