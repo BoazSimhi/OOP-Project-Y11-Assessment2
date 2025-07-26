@@ -3,19 +3,16 @@ class Enemy:
         self.name = name
         self.strength = strength
         self.max_health = max_health
-        current_health = max_health
+        self.current_health = max_health
         self.difficulty = difficulty
 
 
     def attack(self, target):
         print(f"{self.name} attacks!")
-        print(f"{self.name} dealt {self.damage} damage!")
-        target.current_health -= self.damage
+        print(f"{self.name} dealt {self.strength} damage!")
+        target.current_health -= self.strength
         if target.current_health <= 0:
             target.death()
         else:
             target.display_stats()
 
-
-#    def death(self, xp_receiver):
-#        pass

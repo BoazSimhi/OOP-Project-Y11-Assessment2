@@ -25,7 +25,10 @@ To implement the core object-oriented structure of the *Thanes of Combat*, inclu
 ## Resources used
 - Python documentation (class syntax, list operations, Boolean logic)
 - GitBook Module 222 for system design and class modelling
-- AI assistant (ChatGPT) used to review my work and for feedback
+- AI assistant (ChatGPT) used only: (No AI assistance for coding was used)
+- - To review initial SDS
+- - Provide ideas for enemy types
+- - Help with formatting
 - Internal test cases designed using pre-defined inputs and expected outputs
 
 ---

@@ -16,6 +16,9 @@ class Player:
         target.current_health -= self.strength
         print(f"You dealt {self.strength} damage")
         if target.current_health <= 0:
+            if target.name == "King of Thanes":
+                print(f"You have defeated the {target.name}! The world bows before you.\n\n")
+                exit()
             print(f"You have defeated the {target.name}")
             xp_gain = round(uniform(0.5, 2) * target.difficulty)
             self.xp += xp_gain
@@ -31,29 +34,36 @@ class Player:
 
 
     def rest(self):
-        self.current_health += self.wisdom
+        if self.current_health + self.wisdom >= self.max_health:
+            print(f"Feeling already quite rested, you only heal {self.max_health - self.current_health} health")
+            self.current_health = self.max_health
+        else:
+            print(f"You rest and heal {self.wisdom} health")
+            self.current_health += self.wisdom
+        print(f"You are now on {self.current_health}/{self.max_health} health")
 
 
     def display_stats(self):
-        print(f"{self.name}, Level {self.level}")
+        print(f"\n{self.name}, Level {self.level}")
         print(f"Health: {self.current_health}/{self.max_health}")
         print(f"Strength: {self.strength}")
         print(f"Wisdom: {self.wisdom}")
-        print(f"You have {self.xp} out of {self.level * 5} required to level up.")
 
 
     def level_up(self):
         print("You level up and heal to full health!")
 
         # LEVEL UP CODE
-
-        self.display_stats()
+        self.level += 1
         self.current_health = self.max_health
+        self.display_stats()
+
 
 
     def death(self):
         print("The enemy overpowered you,")
         print("Your blade clatters to the ground as you fall.")
         print("You have died.")
-        print("\t\tGAME OVER")
+        print("\n\t\tGAME OVER\n")
+        exit()
 

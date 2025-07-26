@@ -55,7 +55,6 @@ The program is designed for terminal-based use and avoids GUI dependencies. Each
 | Method                    | Description                                         |
 |---------------------------|-----------------------------------------------------|
 | `attack(target)`      | Reduces `Player.health` by `strength`                      |
-| `death(xp_receiver)`     | When the Enemy's `current_health` reaches 0, the Player receives xp related to the enemy's `difficulty`   |
 
 
 ## Assumptions and constraints
@@ -66,15 +65,16 @@ The program is designed for terminal-based use and avoids GUI dependencies. Each
 ## Planned features by sprint
 
 **Sprint 1**
-- Task and TaskManager classes created
+- Files for Player and Enemy classes created, as well as an MVP for both classes coded
 - Instantiate different enemies with relevant attributes
 - Display Player stats and full details
 - Pseudo-randomly select an enemy to fight
+- Add xp gain for when the Player defeats an enemy
+- Create a MVP with the most of the core game loop in place
 
 **Sprint 2**
 - Filter possible enemies to fight by their difficulty
 - Implement Player levelling-up capability with stat increase
-- Add xp gain for when the Player defeats an enemy
 - Enhance user feedback and validation
 
 **Sprint 3**
