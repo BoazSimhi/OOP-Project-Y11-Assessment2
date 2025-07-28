@@ -19,6 +19,34 @@ The system consists of two main classes:
 
 The program is designed for terminal-based use and avoids GUI dependencies. Each sprint builds on the existing functionality.
 
+## User Stories
+
+### Sprint 1
+- As a player, I want to create a character with a name and starting stats so that I can begin my journey in the game.
+- As a player, I want my character to have stats like strength, wisdom, health, and level so that my performance in battle reflects my build.
+- As a player, I want to view my stats between rounds of combat so that I can plan my next move.
+- As a player, I want to fight a variety of fantasy-themed enemies with unique stats so that the combat feels dynamic.
+- As a player, I want enemies to deal damage to me during combat so that the battles feel risky and challenging, but still fair.
+- As a player, I want to gain XP after defeating enemies so that I can progress and eventually level up.
+- As a player, I want to see enemies selected randomly so that each playthrough feels different.
+- As a developer, I want core Player and Enemy classes with key methods implemented so that the game loop can be built around them.
+- As a player, I want the game to have a basic loop of fighting enemies and resting so that I can keep playing without restarting.
+
+### Sprint 2
+- As a player, I want to level up after reaching a reasonable amount of XP so that I feel rewarded for my success.
+- As a player, I want to increase my stats when I level up so that I can tailor my character to my playstyle.
+- As a player, I want only appropriate enemies to be selected based on my level so that I am not overwhelmed early or bored later.
+- As a player, I want the game to give me clear feedback (like damage dealt and XP gained) so that I understand the consequences of my actions.
+- As a player, I want to be prevented from resting if my health is full so that healing actions aren’t wasted.
+- As a developer, I want to validate player inputs so that errors and crashes are minimized.
+
+### Possible Extensibility
+- As a player, I want to use new items (like potions) during battle so that I can better manage my survival.
+- As a player, I want enemies to drop loot occasionally so that I feel rewarded beyond XP.
+- As a developer, I want to store Player progress in files so that the game can be saved and resumed later.
+- As a developer, I want to allow importing/exporting of player/enemy data using CSV or JSON so that data can be updated externally.
+
+
 ## Class descriptions
 
 ### Player
@@ -76,6 +104,7 @@ The program is designed for terminal-based use and avoids GUI dependencies. Each
 - Filter possible enemies to fight by their difficulty
 - Implement Player levelling-up capability with stat increase
 - Enhance user feedback and validation
+- Allow the user to input their own name for the player
 
 **Sprint 3**
 - Optional: Add `critical_chance` for enemy attacks

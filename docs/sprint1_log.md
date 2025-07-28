@@ -3,22 +3,21 @@
 ## Sprint goal
 To implement the core object-oriented structure of the *Thanes of Combat*, including:
 - Definition of the `Player` and `Enemy` classes
-- Methods for ________, ______, and ________
+- Methods for `Enemy.attack(target)`, `Player.attack(target)`, `Player.rest()`, `Player.display_stats()`, and `Player.death()`
 - Manual testing via `main.py`
 - Internal documentation and preparation for future extension
 
 ---
 
 ## Tasks completed
-- Created `CLASS1.py` containing `CLASS` class with attributes: `title`, `description`, `due_date`, `is_complete`
-- Implemented methods in `CLASS1`: `mark_complete()`, `mark_incomplete()`, `display_summary()`, `display_details()`
-- Created `CLASS2.py` containing `CLASS2` class with an internal list of Task objects
-- Implemented methods in `TaskManager`: `add_task()`, `list_tasks()`, `find_task()`, `remove_task()`, `get_completed_tasks()`, `get_incomplete_tasks()`, `display_all_tasks()`
-- Wrote `main.py` to instantiate Task and TaskManager objects and demonstrate functionality through print-based interaction
+- Created `Player.py` containing `Player` class with attributes: `name`, `strength`, `wisdom`, `max_health`, `level`, `xp`, and `current_health`
+- Implemented methods in `Player`: `attack(target)`, `rest()`, `display_stats()`, `death()`
+- Created `Enemy.py` containing `Enemy` class with attributes: `name`, `strength`, `max_health`, `current_health` and `difficulty`
+- Implemented the `attack(target)` method in `Enemy`
+- Wrote `main.py` to instantiate the user as a `Player` object and all the types of enemies as `Enemy` objects, demonstrating functionality through print-based interaction
 - Added test examples with known input to verify core behaviour
 - Prepared `README.md` and initial SDS to describe app architecture and constraints
-- Added TODO comments to `main.py` to guide future iterations
-- Drafted Markdown checklist for student verification of Sprint 1 feature completion
+- Created User stories in SDS
 
 ---
 
@@ -29,24 +28,24 @@ To implement the core object-oriented structure of the *Thanes of Combat*, inclu
 - - To review initial SDS
 - - Provide ideas for enemy types
 - - Help with formatting
+- - Creating User stories for SDS
 - Internal test cases designed using pre-defined inputs and expected outputs
 
 ---
 
-## Testing log DO THIS WHEN I FINISH THE SPRINT
+## Testing log
 
 | Test case | Input | Expected outcome | Actual outcome | Notes |
 |-----------|-------|------------------|----------------|-------|
-| Add task to manager | 2 Task objects | Appears in list | Confirmed | Order preserved |
-| Mark task complete | call `mark_complete()` | `is_complete = True` | Confirmed | Display updated |
-| Toggle task status | call `mark_incomplete()` | `is_complete = False` | Confirmed | Reliable state change |
-| Display summary | task.display_summary() | Title + ✓/✗ | Confirmed | Status shown correctly |
-| Display details | task.display_details() | Title, desc, due, status | Confirmed | Good for debugging |
-| Find task by title | valid and invalid titles | Returns object or None | Confirmed | Case-sensitive |
-| Remove task | title exists | Task removed | Confirmed | Shrinks list |
-| Remove missing task | title does not exist | No crash | Confirmed | Safe fallback |
-| List completed tasks | 1 complete, 1 incomplete | Returns correct subset | Confirmed | Used comprehension |
-| List incomplete tasks | See above | Returns correct subset | Confirmed | Symmetrical logic |
+| Instantiate `Enemy` objects | Running `main.py` file | Objects of `Enemy` created | Confirmed | The class works as intended |
+| Attack `Enemy` | call `Player.attack(enemy)` | `Enemy.current_health -= Player.strength` | Confirmed | Display updated |
+| Player `rest`ing to heal | call `Player.rest()` | `current_health += wisdom` | Confirmed | Player is able to heal by the correct amount |
+| Display the player's stats | `Player.display_stats()` | All stats are outputted | Confirmed | Formatted nicely too |
+| Player dies | `Player.death()` | Some text output and code stopping | Confirmed | exit() is run at the end |
+| Enemy attacks the Player | `Enemy.attack(Player)` | `Player.current_health -= Enemy.strength` | Confirmed | Is able to kill the player as intended |
+| Running core game loop | Running `main.py` | Turn-based gameplay loops | Confirmed | Player does not yet level up |
+| Non-existant player action | action does not exist | Output "Invalid choice." and able to choose again | Confirmed | Safe fallback |
+
 
 ---
 
@@ -59,17 +58,20 @@ To implement the core object-oriented structure of the *Thanes of Combat*, inclu
 
 ---
 
-## Reflections DO THIS WHEN DONE THE SPRINT
+## Reflections
 - Defining two tightly-focused classes helped clarify object-oriented structure early
-- Avoiding user input at this stage allowed complete testing through method calls
+- User input works fine and has clearly outlined possible options
 - Separating summary from detail output improved readability and potential for reuse
 - All tasks in Sprint 1 were completed without needing to restructure code
 - The system design anticipates extension with filters, file storage, and user interface without requiring major changes to the current classes
+- Core gameplay loop is able to be expanded for future sprints with relative ease
 
 ---
 
-## Notes for next sprint DO THIS WHEN DONE THE SPRINT
-- Prepare file format for saving/loading task data
-- Decide on internal vs external ID strategy for uniquely identifying tasks
-- Design a flexible command-line menu system or CLI interface layer
-- Begin drafting basic error handling for bad input or invalid operations
+## Notes for next sprint
+- Implement logic for `Player.level_up()` method
+- Create algorithm to select an appropriately difficult enemy for the player to fight
+- Decide on internal vs external ID strategy for uniquely identifying task
+- Improve command-line menu system
+- Ensure SDS remains aligned to changes made to the overall class structure
+- Allow the user to input their own name for the player

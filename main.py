@@ -39,7 +39,7 @@ enemies_raw = [
     ["Wyvern", 16, 29, 18], ["Celestial", 15, 28, 18], ["Assassin", 16, 27, 18],
     ["Titan", 18, 32, 19], ["Primordial", 17, 30, 19],
     ["Dragon", 20, 35, 20], ["Archdemon", 22, 38, 20],
-    ["King of Thanes", 25, 40, 21]
+    ["King of Thanes", 30, 50, 21]
 ]
 
 Enemy_list = []
@@ -51,7 +51,8 @@ for name, strength, max_health, difficulty in enemies_raw:
 
 # The main game loop
 while True:
-    current_enemy = Enemy_list[1] #choice(Enemy_list) # FOR TESTING
+    current_enemy = Enemy_list[1] # FOR TESTING
+    #current_enemy = choice(Enemy_list)
     print(f"\nYou are now fighting {current_enemy.name}!")
 
     while True:
