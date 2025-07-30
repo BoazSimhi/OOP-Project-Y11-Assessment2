@@ -13,7 +13,8 @@ print(''' ________                        ___  _____           __        __
                                                                    \n\n''')
 
 # Instantiating the player object
-Thane = Player("Hero Guy", 4, 2, 10)
+your_name = str(input("What is your name, dear Thane?\n> "))
+Thane = Player(your_name, 4, 2, 10)
 
 # Instantiate all the enemy objects
 # Name, Strength, Max_Health, Difficulty
@@ -39,7 +40,7 @@ enemies_raw = [
     ["Wyvern", 16, 29, 18], ["Celestial", 15, 28, 18], ["Assassin", 16, 27, 18],
     ["Titan", 18, 32, 19], ["Primordial", 17, 30, 19],
     ["Dragon", 20, 35, 20], ["Archdemon", 22, 38, 20],
-    ["King of Thanes", 30, 50, 21]
+    ["King of Thanes", 51, 51, 21]
 ]
 
 Enemy_list = []
@@ -47,17 +48,24 @@ Enemy_list = []
 for name, strength, max_health, difficulty in enemies_raw:
     Enemy_list.append(Enemy(name, strength, max_health, difficulty))
 
+Thane.display_stats()
 
+input("Are you ready for trials of Combat?\n~ ")
 
 # The main game loop
 while True:
-    current_enemy = Enemy_list[1] # FOR TESTING
-    #current_enemy = choice(Enemy_list)
+    system('clear')
+    #current_enemy = Enemy_list[1] # FOR TESTING
+    while True:
+        current_enemy = choice(Enemy_list)
+        if current_enemy.difficulty <= Thane.level and Thane.level - current_enemy.difficulty <= 3:
+            break
+    
     print(f"\nYou are now fighting {current_enemy.name}!")
 
     while True:
         while True:
-            move = input("what would you like to do? ").lower()
+            move = input("what would you like to do? (a: attack, r: rest)\n> ").lower()
             if move == "a":
                 Thane.attack(current_enemy)
                 break
@@ -69,12 +77,11 @@ while True:
                     break
             else:
                 print("Invalid choice.")
-        
+            
         if current_enemy.current_health <= 0:
-            print("You kill enemy!") ###############
             break
 
-        input(f"The {current_enemy.name} now attacks! ")
+        input(f"The {current_enemy.name} now attacks!\n~ ")
         current_enemy.attack(Thane)
 
 

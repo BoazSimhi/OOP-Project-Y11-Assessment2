@@ -100,14 +100,14 @@ The program is designed for terminal-based use and avoids GUI dependencies. Each
 - Add xp gain for when the Player defeats an enemy
 - Create a MVP with the most of the core game loop in place
 
-**Sprint 2**
+**Sprint 2 - Required for the MVP**
 - Filter possible enemies to fight by their difficulty
 - Implement Player levelling-up capability with stat increase
 - Enhance user feedback and validation
 - Allow the user to input their own name for the player
 
-**Sprint 3**
-- Optional: Add `critical_chance` for enemy attacks
+**Sprint 3 - Optional Further Development** 
+- Add `critical_chance` for enemy attacks
 - Extend user interface with command menus
 - Add automated tests for core functionality
 - Final documentation and polish

@@ -1,3 +1,4 @@
+from os import system
 from random import uniform
 
 class Player:
@@ -17,7 +18,8 @@ class Player:
         print(f"You dealt {self.strength} damage")
         if target.current_health <= 0:
             if target.name == "King of Thanes":
-                print(f"You have defeated the {target.name}! The world bows before you.\n\n")
+                input(f"You have defeated the {target.name}! The world bows before you.\n\~ ")
+                input("Thanks for playing!\n~ ")
                 exit()
             print(f"You have defeated the {target.name}")
             xp_gain = round(uniform(0.5, 2) * target.difficulty)
@@ -27,20 +29,21 @@ class Player:
                 self.xp = 0
                 self.level_up()
             else:
-                print(f"You have {self.xp} out of {self.level * 5} required to level up.")
+                print(f"\nYou have {self.xp} out of {self.level * 5} required to level up.")
+                input("~ ")
         
         else:
-            print(f"{target.name} now has {target.current_health} health remaining.")
+            print(f"{target.name} now has {target.current_health} health remaining.\n")
 
 
     def rest(self):
         if self.current_health + self.wisdom >= self.max_health:
-            print(f"Feeling already quite rested, you only heal {self.max_health - self.current_health} health")
+            print(f"\nFeeling already quite rested, you only heal {self.max_health - self.current_health} health")
             self.current_health = self.max_health
         else:
             print(f"You rest and heal {self.wisdom} health")
             self.current_health += self.wisdom
-        print(f"You are now on {self.current_health}/{self.max_health} health")
+        print(f"You are now on {self.current_health}/{self.max_health} health\n")
 
 
     def display_stats(self):
@@ -51,19 +54,35 @@ class Player:
 
 
     def level_up(self):
-        print("You level up and heal to full health!")
+        system('clear')
+        print("\nYou level up and heal to full health!")
 
-        # LEVEL UP CODE
+        self.max_health += 2
+        while True:
+            stat_increase = input("Which stat would you like to increase?\ns: Strength (+1), w: Wisdom (+4), or m: Max Health (+5)\n> ").lower()
+            if stat_increase == "s":
+                self.strength += 1
+                break
+            elif stat_increase == "w":
+                self.wisdom += 4
+                break
+            elif stat_increase == "m":
+                self.max_health += 5
+                break
+            else:
+                print("Not a valid option.")
+
         self.level += 1
         self.current_health = self.max_health
+        print("Your stats have increased!")
         self.display_stats()
 
 
 
     def death(self):
-        print("The enemy overpowered you,")
+        print("\nThe enemy overpowered you,")
         print("Your blade clatters to the ground as you fall.")
-        print("You have died.")
+        input("You have died.\n~ ")
         print("\n\t\tGAME OVER\n")
         exit()
 
