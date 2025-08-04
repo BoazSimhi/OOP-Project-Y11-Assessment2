@@ -1,5 +1,5 @@
 # OOP-Project-Y11-Assessment2
-My Year 11 Software Engineering Assessment 2 (for Term 3). An OOP project called *Thanes of Combat*.
+My Year 11 Software Engineering Assessment 2 (for Term 3). An OOP project called *Thane of Combat*.
 
 *Thanes of Combat* is a riveting command line fantasy adventure-combat game written in Python. The project will use object-oriented principles and follow an Agile development paradigm using sprints, system design, and version control with Git and GitHub.
 
@@ -23,7 +23,8 @@ OOP-Project-Y11-Assessment2/
 │
 ├── docs/
 │   ├── SDS.md            # Software Design Specification (v1.0+)
-│   └── sprint1_log.md    # Completed sprint log with testing summary
+│   ├── sprint1_log.md    # Completed log of sprint 1 with testing summary
+│   └── sprint2_log.md    # Completed log of sprint 2 with testing summary
 │
 ├── .gitignore            # Files excluded from version control
 ├── README.md             # Project overview and setup

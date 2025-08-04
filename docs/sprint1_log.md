@@ -1,7 +1,7 @@
 # OOP Project Sprint Log: Sprint 1
 
 ## Sprint goal
-To implement the core object-oriented structure of the *Thanes of Combat*, including:
+To implement the core object-oriented structure of *Thane of Combat*, including:
 - Definition of the `Player` and `Enemy` classes
 - Methods for `Enemy.attack(target)`, `Player.attack(target)`, `Player.rest()`, `Player.display_stats()`, and `Player.death()`
 - Manual testing via `main.py`
@@ -71,7 +71,6 @@ To implement the core object-oriented structure of the *Thanes of Combat*, inclu
 ## Notes for next sprint
 - Implement logic for `Player.level_up()` method
 - Create algorithm to select an appropriately difficult enemy for the player to fight
-- Decide on internal vs external ID strategy for uniquely identifying task
 - Improve command-line menu system
 - Ensure SDS remains aligned to changes made to the overall class structure
 - Allow the user to input their own name for the player

@@ -17,8 +17,12 @@ class Player:
         target.current_health -= self.strength
         print(f"You dealt {self.strength} damage")
         if target.current_health <= 0:
+            #print(f"BEFORE current: {target.current_health}\nmax: {target.max_health}")
+            #target.current_health = target.max_health
+            #print(f"AFTER current: {target.current_health}\nmax: {target.max_health}")
+            #input("~~~") ### 3 lines of testing
             if target.name == "King of Thanes":
-                input(f"You have defeated the {target.name}! The world bows before you.\n\~ ")
+                input(f"You have defeated the {target.name}! The world bows before you.\n~ ")
                 input("Thanks for playing!\n~ ")
                 exit()
             print(f"You have defeated the {target.name}")
@@ -55,16 +59,17 @@ class Player:
 
     def level_up(self):
         system('clear')
-        print("\nYou level up and heal to full health!")
+        print("\nYou level up, your max health increases by 2, and you heal to full health!")
+        print(f"You are now level {self.level}")
 
         self.max_health += 2
         while True:
-            stat_increase = input("Which stat would you like to increase?\ns: Strength (+1), w: Wisdom (+4), or m: Max Health (+5)\n> ").lower()
+            stat_increase = input(f"Which stat would you like to increase?\ns: Strength ({self.strength} +1), w: Wisdom ({self.wisdom} +5), or m: Max Health ({self.max_health} +5)\n> ").lower()
             if stat_increase == "s":
                 self.strength += 1
                 break
             elif stat_increase == "w":
-                self.wisdom += 4
+                self.wisdom += 5
                 break
             elif stat_increase == "m":
                 self.max_health += 5

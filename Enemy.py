@@ -8,7 +8,6 @@ class Enemy:
 
 
     def attack(self, target):
-        print(f"{self.name} attacks!")
         print(f"{self.name} dealt {self.strength} damage!\n")
         target.current_health -= self.strength
         if target.current_health <= 0:

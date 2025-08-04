@@ -12,6 +12,7 @@ print(''' ________                        ___  _____           __        __
 /_/ /_//_/\_,_/_//_/\__/  \___/_/   \___/\___/_/_/_/_.__/\_,_/\__/ 
                                                                    \n\n''')
 
+
 # Instantiating the player object
 your_name = str(input("What is your name, dear Thane?\n> "))
 Thane = Player(your_name, 4, 2, 10)
@@ -40,7 +41,7 @@ enemies_raw = [
     ["Wyvern", 16, 29, 18], ["Celestial", 15, 28, 18], ["Assassin", 16, 27, 18],
     ["Titan", 18, 32, 19], ["Primordial", 17, 30, 19],
     ["Dragon", 20, 35, 20], ["Archdemon", 22, 38, 20],
-    ["King of Thanes", 51, 51, 21]
+    ["King of Thanes", 32, 65, 21]
 ]
 
 Enemy_list = []
@@ -50,6 +51,8 @@ for name, strength, max_health, difficulty in enemies_raw:
 
 Thane.display_stats()
 
+print("\nAttack deals your strength worth of damage,\nRest heals you by how much wisdom you have.")
+input("'>' requires an input, '~' press return to continue.\n~ ")
 input("Are you ready for trials of Combat?\n~ ")
 
 # The main game loop
@@ -65,6 +68,7 @@ while True:
 
     while True:
         while True:
+            print(f"You have {Thane.current_health}/{Thane.max_health} health remaining")
             move = input("what would you like to do? (a: attack, r: rest)\n> ").lower()
             if move == "a":
                 Thane.attack(current_enemy)
@@ -79,6 +83,7 @@ while True:
                 print("Invalid choice.")
             
         if current_enemy.current_health <= 0:
+            current_enemy.current_health = current_enemy.max_health
             break
 
         input(f"The {current_enemy.name} now attacks!\n~ ")

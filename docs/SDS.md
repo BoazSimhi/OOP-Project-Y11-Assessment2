@@ -31,13 +31,13 @@ The program is designed for terminal-based use and avoids GUI dependencies. Each
 - As a player, I want to see enemies selected randomly so that each playthrough feels different.
 - As a developer, I want core Player and Enemy classes with key methods implemented so that the game loop can be built around them.
 - As a player, I want the game to have a basic loop of fighting enemies and resting so that I can keep playing without restarting.
+- As a player, I want to be prevented from resting if my health is full so that healing actions aren’t wasted.
 
 ### Sprint 2
 - As a player, I want to level up after reaching a reasonable amount of XP so that I feel rewarded for my success.
 - As a player, I want to increase my stats when I level up so that I can tailor my character to my playstyle.
 - As a player, I want only appropriate enemies to be selected based on my level so that I am not overwhelmed early or bored later.
 - As a player, I want the game to give me clear feedback (like damage dealt and XP gained) so that I understand the consequences of my actions.
-- As a player, I want to be prevented from resting if my health is full so that healing actions aren’t wasted.
 - As a developer, I want to validate player inputs so that errors and crashes are minimized.
 
 ### Possible Extensibility
@@ -45,6 +45,127 @@ The program is designed for terminal-based use and avoids GUI dependencies. Each
 - As a player, I want enemies to drop loot occasionally so that I feel rewarded beyond XP.
 - As a developer, I want to store Player progress in files so that the game can be saved and resumed later.
 - As a developer, I want to allow importing/exporting of player/enemy data using CSV or JSON so that data can be updated externally.
+
+## Use Cases
+
+### Use Case 1: Create Player Character
+- **Actors**: Player  
+- **Description**: The player creates a character with a custom name and starting stats.  
+- **Preconditions**: Game has started.  
+- **Main Flow**:
+  1. Prompt player to enter a name.
+  2. Generate default or rolled stats.
+  3. Instantiate `Player` object.
+- **Postconditions**: Player character is created and stored in memory.
+
+### Use Case 2: View Player Stats
+- **Actors**: Player  
+- **Description**: Player can view their current stats.  
+- **Preconditions**: A `Player` object must exist.  
+- **Main Flow**:
+  1. Player selects the "view stats" option.
+  2. `Player.display_stats()` is called.
+  3. Stats are printed to the screen.
+- **Postconditions**: Player sees their current state.
+
+### Use Case 3: Enter Combat
+- **Actors**: Player, Enemy  
+- **Description**: Player engages in battle with an enemy.  
+- **Preconditions**: Player is alive.  
+- **Main Flow**:
+  1. Game selects a level-appropriate enemy.
+  2. Instantiate an `Enemy` object.
+  3. Begin turn-based combat.
+- **Postconditions**: Combat ends with player or enemy defeated.
+
+### Use Case 4: Attack Enemy
+- **Actors**: Player  
+- **Description**: Player attacks an enemy, dealing damage.  
+- **Preconditions**: Combat is active.  
+- **Main Flow**:
+  1. Player chooses "attack".
+  2. `Player.attack(Enemy)` is called.
+  3. Enemy health is reduced.
+- **Postconditions**: Enemy takes damage or is defeated.
+
+### Use Case 5: Enemy Attacks Player
+- **Actors**: Enemy  
+- **Description**: Enemy attacks the player.  
+- **Preconditions**: Combat is active.  
+- **Main Flow**:
+  1. Enemy's turn begins.
+  2. `Enemy.attack(Player)` is called.
+  3. Player health is reduced.
+- **Postconditions**: Player takes damage or dies.
+
+### Use Case 6: Gain XP and Level Up
+- **Actors**: Player  
+- **Description**: Player earns XP after winning combat and may level up.  
+- **Preconditions**: Enemy is defeated.  
+- **Main Flow**:
+  1. Player gains XP based on enemy difficulty.
+  2. XP total is updated.
+  3. If threshold met, `Player.level_up()` is called.
+- **Postconditions**: Player levels up and selects a stat to increase.
+
+### Use Case 7: Rest to Heal
+- **Actors**: Player  
+- **Description**: Player heals by resting.  
+- **Preconditions**: Player is not at full health.  
+- **Main Flow**:
+  1. Player chooses "rest".
+  2. `Player.rest()` is called.
+  3. Health increases by wisdom amount.
+- **Postconditions**: Health is restored (not beyond max).
+
+### Use Case 8: Prevent Rest at Full Health
+- **Actors**: Player  
+- **Description**: Player is prevented from resting when at full health.  
+- **Preconditions**: Health is already at max.  
+- **Main Flow**:
+  1. Player chooses "rest".
+  2. System checks current health.
+  3. Message displayed: "Health is already full."
+- **Postconditions**: No changes to health or state.
+
+### Use Case 9: Random Enemy Selection
+- **Actors**: System  
+- **Description**: Game selects a random enemy appropriate to player's level.  
+- **Preconditions**: Combat initiated.  
+- **Main Flow**:
+  1. Filter enemy list by `Enemy.difficulty`.
+  2. Use random module to pick one.
+  3. Instantiate that enemy.
+- **Postconditions**: Enemy appears in combat.
+
+### Use Case 10: Input Validation
+- **Actors**: System  
+- **Description**: Game validates user inputs to prevent crashes.  
+- **Preconditions**: User is prompted for input.  
+- **Main Flow**:
+  1. Input received from user.
+  2. Checked against valid options.
+  3. Invalid input causes error message and re-prompt.
+- **Postconditions**: Safe, continuous game loop.
+
+### (Optional) Use Case 11: Use Item
+- **Actors**: Player  
+- **Description**: Player uses an item such as a potion.  
+- **Preconditions**: Player has item in inventory.  
+- **Main Flow**:
+  1. Player selects item.
+  2. Item effect is applied.
+  3. Item removed from inventory.
+- **Postconditions**: Health/stats change; item consumed.
+
+### (Optional) Use Case 12: Save and Load Game
+- **Actors**: Player, System  
+- **Description**: Game state is saved to or loaded from a file.  
+- **Preconditions**: Player chooses "save" or "load".  
+- **Main Flow**:
+  1. For save: serialize `Player` to file (e.g. CSV, JSON).
+  2. For load: read file and reconstruct `Player`.
+- **Postconditions**: Game resumes from saved state.
 
 
 ## Class descriptions
@@ -107,7 +228,8 @@ The program is designed for terminal-based use and avoids GUI dependencies. Each
 - Allow the user to input their own name for the player
 
 **Sprint 3 - Optional Further Development** 
-- Add `critical_chance` for enemy attacks
+- Add `critical_chance` for player and/or enemy attacks
+- Allow the user to 'roll' for their initial stats
 - Extend user interface with command menus
 - Add automated tests for core functionality
 - Final documentation and polish
