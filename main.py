@@ -15,7 +15,7 @@ print(''' ________                        ___  _____           __        __
 
 # Instantiating the player object
 your_name = str(input("What is your name, dear Thane?\n> "))
-Thane = Player(your_name, 4, 2, 10)
+Thane = Player(your_name, 4, 3, 10)
 
 # Instantiate all the enemy objects
 # Name, Strength, Max_Health, Difficulty
@@ -41,7 +41,7 @@ enemies_raw = [
     ["Wyvern", 16, 29, 18], ["Celestial", 15, 28, 18], ["Assassin", 16, 27, 18],
     ["Titan", 18, 32, 19], ["Primordial", 17, 30, 19],
     ["Dragon", 20, 35, 20], ["Archdemon", 22, 38, 20],
-    ["King of Thanes", 32, 65, 21]
+    ["King of Thanes", 30, 60, 21]
 ]
 
 Enemy_list = []
@@ -51,7 +51,7 @@ for name, strength, max_health, difficulty in enemies_raw:
 
 Thane.display_stats()
 
-print("\nAttack deals your strength worth of damage,\nRest heals you by how much wisdom you have.")
+print("\n'Attack' deals damage equal to how much strength you have,\n'Rest' heals you by how much wisdom you have.")
 input("'>' requires an input, '~' press return to continue.\n~ ")
 input("Are you ready for trials of Combat?\n~ ")
 
@@ -61,7 +61,9 @@ while True:
     #current_enemy = Enemy_list[1] # FOR TESTING
     while True:
         current_enemy = choice(Enemy_list)
-        if current_enemy.difficulty <= Thane.level and Thane.level - current_enemy.difficulty <= 3:
+        if Thane.level == 21 and current_enemy.name == "King of Thanes":
+            break
+        elif current_enemy.difficulty <= Thane.level and Thane.level - current_enemy.difficulty <= 3:
             break
     
     print(f"\nYou are now fighting {current_enemy.name}!")

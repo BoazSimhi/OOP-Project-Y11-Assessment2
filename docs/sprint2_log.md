@@ -53,12 +53,13 @@ To complete the MVP (Minimum Viable Product) of *Thane of Combat*, including:
 ---
 
 ## Reflections DO THIS SECTION
-- Defining two tightly-focused classes helped clarify object-oriented structure early
-- User input works fine and has clearly outlined possible options
-- Separating summary from detail output improved readability and potential for reuse
-- All tasks in Sprint 1 were completed without needing to restructure code
-- The system design anticipates extension with filters, file storage, and user interface without requiring major changes to the current classes
+- Classes are both effective and work well together
+- User input works fine and has effective error-handling, with the use of '~' and '>' being helpful in clarifying actions to the user
+- Gameplay is engaging and a consistently challenging difficulty
+- All tasks in Sprint 2 were completed without needing to restructure code
+- The system design anticipates further extension with possible file storage, and user interface upgrades without requiring major changes to the current classes
 - Core gameplay loop is able to be expanded for future sprints with relative ease
+- The MVP has been completed effectively
 
 ---
 

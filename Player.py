@@ -17,10 +17,6 @@ class Player:
         target.current_health -= self.strength
         print(f"You dealt {self.strength} damage")
         if target.current_health <= 0:
-            #print(f"BEFORE current: {target.current_health}\nmax: {target.max_health}")
-            #target.current_health = target.max_health
-            #print(f"AFTER current: {target.current_health}\nmax: {target.max_health}")
-            #input("~~~") ### 3 lines of testing
             if target.name == "King of Thanes":
                 input(f"You have defeated the {target.name}! The world bows before you.\n~ ")
                 input("Thanks for playing!\n~ ")
@@ -29,7 +25,7 @@ class Player:
             xp_gain = round(uniform(0.5, 2) * target.difficulty)
             self.xp += xp_gain
             print(f"You gained {xp_gain} xp!")
-            if self.xp >= self.level * 5:
+            if self.xp >= self.level * 4:
                 self.xp = 0
                 self.level_up()
             else:
@@ -63,6 +59,7 @@ class Player:
         print(f"You are now level {self.level}")
 
         self.max_health += 2
+        self.level += 1
         while True:
             stat_increase = input(f"Which stat would you like to increase?\ns: Strength ({self.strength} +1), w: Wisdom ({self.wisdom} +5), or m: Max Health ({self.max_health} +5)\n> ").lower()
             if stat_increase == "s":
@@ -77,7 +74,7 @@ class Player:
             else:
                 print("Not a valid option.")
 
-        self.level += 1
+        
         self.current_health = self.max_health
         print("Your stats have increased!")
         self.display_stats()
